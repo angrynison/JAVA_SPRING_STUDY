@@ -1,0 +1,17 @@
+MySQL DB 연결,
+HTML static 코드 작성,Controller 작성 완료
+(Model 바구니 객체 담아서 보내기, members/new랑 orders/new)
+
+//04/10
+Controller 작성 완료
+상품 등록 페이지 작성
+DB 연결
+MemberList html 작성
+
+Github 등록
+
+productService
+productForm
+productController
+
+productForm,list 작성
