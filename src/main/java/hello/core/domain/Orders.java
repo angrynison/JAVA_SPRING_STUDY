@@ -9,8 +9,8 @@ import jakarta.persistence.Id;
 public class Orders {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long orderId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private Long memberId;
     private Long productId;
@@ -28,11 +28,11 @@ public class Orders {
     }
 
     public Long getOrderId() {
-        return orderId;
+        return id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrderId(Long id) {
+        this.id = id;
     }
 
     public Long getMemberId() {

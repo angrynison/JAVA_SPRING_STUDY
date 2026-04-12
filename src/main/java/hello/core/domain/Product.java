@@ -8,36 +8,47 @@ import jakarta.persistence.Id;
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productId;
-    private String itemName;
+d    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String productName;
     private int itemPrice;
     private Long productCount;
 
-    public Product(Long productId,String itemName, int itemPrice) {
-        this.productId = productId;
-        this.itemName = itemName;
+    public Product(Long id,String productName, int itemPrice) {
+        this.id = id;
+        this.productName = productName;
         this.itemPrice = itemPrice;
     }
     public Product() {}
 
+
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public int getItemPrice() {
         return itemPrice;
     }
     public void setItemPrice(int itemPrice) {
         this.itemPrice = itemPrice;
     }
-    public String getItemName() {
-        return itemName;
-    }
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
     public Long getProductId() {
-        return productId;
+        return id;
     }
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProductId(Long id) {
+        this.id = id;
     }
     public Long getProductCount() {
         return productCount;
