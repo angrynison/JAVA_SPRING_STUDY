@@ -15,7 +15,7 @@ public class ProductService {
 
     // 제품 등록 서비스
     public Long join(Product product) {
-        Optional<Product> foundProduct = productRepository.findByName(product.getItemName());
+        Optional<Product> foundProduct = productRepository.findByproductName(product.getProductName());
 
         if (foundProduct.isPresent()) {
             Product existingProduct = foundProduct.get();

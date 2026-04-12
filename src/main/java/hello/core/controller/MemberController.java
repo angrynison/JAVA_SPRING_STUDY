@@ -26,7 +26,7 @@ public class MemberController {
     //회원 리스트
     @GetMapping("/memberList")
     public String members(Model model) {
-        List<Member> members = memberRepository.findAll().orElse(List.of());
+        List<Member> members = memberRepository.findAll();
         model.addAttribute("members", members);
         return "members/memberList";
     }

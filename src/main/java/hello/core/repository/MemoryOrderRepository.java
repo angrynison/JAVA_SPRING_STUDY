@@ -13,12 +13,13 @@ public class MemoryOrderRepository implements OrderRepository {
 
 
     @Override
-    public void save(Orders order) {
+    public Orders save(Orders order) {
         order_store.put(order.getOrderId(), order);
+        return order;
     }
 
     @Override
-    public Optional<Orders> findOrderId(Orders orders) {
+    public Optional<Orders> findById(Orders orders) {
         return Optional.ofNullable(order_store.get(orders.getOrderId()));
     }
 

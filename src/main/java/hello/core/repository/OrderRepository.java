@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface OrderRepository {
 
-    void save(Orders orders);
-    Optional<Orders> findOrderId (Orders orders);
+    Orders save(Orders orders);
+    Optional<Orders> findById (Orders orders);
     List<Orders> findAll();
 
 }

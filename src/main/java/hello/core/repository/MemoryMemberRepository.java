@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
 public class MemoryMemberRepository implements MemberRepository {
 
     /*
@@ -22,10 +21,11 @@ public class MemoryMemberRepository implements MemberRepository {
     long sequence = 0L;
 
     @Override
-    public void save(Member member) {
+    public Member save(Member member) {
         sequence++;
         member.setId(sequence);
         store.put(member.getId(),member);
+        return member;
     }
 
     @Override
@@ -35,9 +35,9 @@ public class MemoryMemberRepository implements MemberRepository {
 
     //구현해야함
     @Override
-    public Optional<List<Member>> findAll() {
+    public List<Member> findAll() {
         List<Member> members = new ArrayList<>(store.values());
-        return Optional.of(members);
+        return members;
     }
 
 

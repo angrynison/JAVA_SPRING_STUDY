@@ -14,10 +14,11 @@ public class MemoryProductRepository implements ProductRepository {
     Long sequence = 0L;
 
     @Override
-    public void save(Product product) {
+    public Product save(Product product) {
         sequence++;
         product.setProductId(sequence);
         product_store.put(product.getProductId(), product);
+        return product;
     }
 
     @Override
@@ -33,9 +34,9 @@ public class MemoryProductRepository implements ProductRepository {
     }
 
     @Override
-    public Optional<Product> findByName(String name) {
+    public Optional<Product> findByproductName(String name) {
         return product_store.values().stream()
-                .filter(member -> member.getItemName().equals(name))
+                .filter(member -> member.getProductName().equals(name))
                 .findAny();
     }
 
