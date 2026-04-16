@@ -19,12 +19,12 @@ public class ProductService {
 
         if (foundProduct.isPresent()) {
             Product existingProduct = foundProduct.get();
-            existingProduct.setProductCount(existingProduct.getProductCount() + 1);
+            existingProduct.addStocks(product.getProductCount());
             productRepository.save(existingProduct);
             return existingProduct.getProductId();
         }
         else {
-            product.setProductCount(1L);
+            product.setProductCount(product.getProductCount());
             productRepository.save(product);
             return product.getProductId();
         }

@@ -33,6 +33,14 @@
           </div>
         </div>
 
+        <div class="mb-4">
+          <label th:for="productCount" class="form-label fw-bold text-secondary">재고수</label>
+          <div class="input-group">
+            <span class="input-group-text">₩</span>
+            <input type="number" th:field="*{productCount}" class="form-control form-control-lg" placeholder="상품수량을 입력하세요">
+          </div>
+        </div>
+
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-primary btn-lg fw-bold">등록 완료</button>
           <a href="/" class="btn btn-light">취소</a>

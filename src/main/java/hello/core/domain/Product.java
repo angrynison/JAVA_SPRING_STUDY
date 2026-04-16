@@ -1,5 +1,7 @@
 package hello.core.domain;
 
+import hello.core.exception.NotEnoughStocksException;
+import hello.core.exception.WrongStocksInsertionException;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,11 +10,11 @@ import jakarta.persistence.Id;
 @Entity
 public class Product {
     @Id
-d    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String productName;
     private int itemPrice;
-    private Long productCount;
+    private int productCount;
 
     public Product(Long id,String productName, int itemPrice) {
         this.id = id;
@@ -21,6 +23,20 @@ d    @GeneratedValue(strategy = GenerationType.IDENTITY)
     }
     public Product() {}
 
+    public void addStocks(int quantity) {
+        if (quantity < 0) {
+            throw new WrongStocksInsertionException("wrong insert stocks");
+        }
+        this.productCount += quantity;
+    }
+
+    public void removeStocks(int count) {
+        int remain = this.productCount - count;
+        if (remain < 0) {
+            throw new NotEnoughStocksException("Need more stocks");
+        }
+        this.productCount = remain;
+    }
 
 
     public String getProductName() {
@@ -50,10 +66,10 @@ d    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public void setProductId(Long id) {
         this.id = id;
     }
-    public Long getProductCount() {
+    public int getProductCount() {
         return productCount;
     }
-    public void setProductCount(Long productCount) {
+    public void setProductCount(int productCount) {
         this.productCount = productCount;
     }
 }

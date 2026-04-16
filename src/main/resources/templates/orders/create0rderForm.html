@@ -22,12 +22,13 @@
             <option value="">상품을 선택하세요</option>
             <option th:each="product : ${products}"
                     th:value="${product.productId}"
-                    th:text="${product.name}">상품명</option>
+                    th:text="${product.productName} + ' (재고: ' + ${product.productCount} + '개) - ' + ${product.itemPrice} + '원'">
+            </option>
           </select>
         </div>
         <div class="mb-4">
-          <label for="productCount" class="form-label fw-bold">주문 수량</label>
-          <input type="number" id="productCount" name="productcount" class="form-control" min="1" value="1">
+          <label for="orderCount" class="form-label fw-bold">주문 수량</label>
+          <input type="number" id="orderCount" name="orderCount" class="form-control" min="1" value="1">
         </div>
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-success btn-lg">주문하기</button>

@@ -21,10 +21,13 @@ public class OrderService {
     }
 
     //Jpa 로 어떻게 바뀔지 한번 보자
-    public Orders createOrders(Member member, Product product) {
-        Orders orders = new Orders(member.getId(), product.getProductId(), product.getItemPrice());
-        double price = discountPolicy.discount(member, product.getItemPrice());
-        orders.setDiscountPrice(price);
+    public Orders createOrders(Member member, Product product, int orderCount) {
+        product.removeStocks(orderCount);
+        Orders orders = new Orders(member.getId(), product.getProductId(), orderCount);
+        double original_price = orderCount*product.getItemPrice();
+        double discount_price = discountPolicy.discount(member, original_price);
+        orders.setProductPrice(original_price);
+        orders.setDiscountPrice(discount_price);
         orderrepository.save(orders);
         return orders;
     }

@@ -3,6 +3,7 @@ package hello.core.discount;
 import hello.core.domain.Grade;
 import hello.core.domain.Member;
 
+
 public class RateDiscountPolicyImpl implements DiscountPolicy {
 
     @Override

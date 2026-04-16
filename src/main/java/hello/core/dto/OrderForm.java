@@ -7,14 +7,23 @@ public class OrderForm {
     private Long productId;
     private String productName;
     private int productPrice;
-    private int productCount;
+    private int orderCount;
+    private int orderPrice;
 
-    public int getProductCount() {
-        return productCount;
+    public int getOrderCount() {
+        return orderCount;
     }
 
-    public void setProductCount(int productCount) {
-        this.productCount = productCount;
+    public void setOrderCount(int orderCount) {
+        this.orderCount = orderCount;
+    }
+
+    public int getOrderPrice() {
+        return orderPrice;
+    }
+
+    public void setOrderPrice(int orderPrice) {
+        this.orderPrice = orderPrice;
     }
 
 

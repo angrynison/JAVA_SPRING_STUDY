@@ -5,6 +5,15 @@ public class ProductForm {
     private Long productId;
     private String productName;
     private int productPrice;
+    private int productCount;
+
+    public int getProductCount() {
+        return productCount;
+    }
+
+    public void setProductCount(int productCount) {
+        this.productCount = productCount;
+    }
 
     public Long getProductId() {
         return productId;

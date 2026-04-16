@@ -14,17 +14,34 @@ public class Orders {
 
     private Long memberId;
     private Long productId;
+    private int orderCount;
     private double productPrice;
     private double discountPrice;
 
-    public Orders(Long memberId, Long productId, double productPrice) {
+    public Orders(Long memberId, Long productId, int orderCount) {
         this.memberId = memberId;
         this.productId = productId;
-        this.productPrice = productPrice;
+        this.orderCount = orderCount;
     }
 
     public Orders() {
 
+    }
+
+    public int getOrderCount() {
+        return orderCount;
+    }
+
+    public void setOrderCount(int orderCount) {
+        this.orderCount = orderCount;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getOrderId() {

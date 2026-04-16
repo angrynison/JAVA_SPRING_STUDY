@@ -31,8 +31,9 @@ public class ProductController {
         Product product = new Product();
         product.setItemPrice(productForm.getProductPrice());
         product.setProductName(productForm.getProductName());
+        product.setProductCount(productForm.getProductCount());
         productService.join(product);
-        return "redirect:/products/createProduct";
+        return "redirect:/";
     }
 
 

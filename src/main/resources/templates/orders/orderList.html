@@ -27,8 +27,7 @@
                         <th class="py-3 px-4">회원 ID</th>
                         <th class="py-3 px-4">상품명</th>
                         <th class="py-3 px-4 text-end">상품 가격</th>
-                        <th class="py-3 px-4 text-end text-warning">할인 금액</th>
-                        <th class="py-3 px-4 text-end fw-bold">최종 결제 금액</th>
+                        <th class="py-3 px-4 text-end text-warning">할인 적용 가격</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,9 +35,7 @@
                         <td class="py-3 px-4" th:text="${order.memberId}">1</td>
                         <td class="py-3 px-4 fw-bold" th:text="${order.productId}">상품명</td>
                         <td class="py-3 px-4 text-end" th:text="${order.productPrice} + '원'">10000원</td>
-                        <td class="py-3 px-4 text-end text-danger" th:text="'-' + ${order.discountPrice} + '원'">-1000원</td>
-                        <td class="py-3 px-4 text-end fw-bold text-primary"
-                            th:text="${order.productPrice - order.discountPrice} + '원'">9000원</td>
+                        <td class="py-3 px-4 text-end" th:text="${order.discountPrice} + '원'">-1000원</td>
                     </tr>
                     <tr th:if="${#lists.isEmpty(orders)}">
                         <td colspan="5" class="py-5 text-center text-muted">주문 내역이 존재하지 않습니다.</td>
