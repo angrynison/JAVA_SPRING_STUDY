@@ -21,7 +21,7 @@ public class OrderServiceTest {
         //Gvien
         Member member = new Member(0L,"앵그리", Grade.VIP);
         Product product = new Product(0L,"휴지",500);
-        Orders result = orderservice.createOrders(member, product);
+        Orders result = orderservice.createOrders(member, product, 5);
 
         System.out.println(result.getProductPrice());
         System.out.println(result.getDiscountPrice());
