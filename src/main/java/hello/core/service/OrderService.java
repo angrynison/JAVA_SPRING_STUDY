@@ -6,6 +6,7 @@ import hello.core.domain.Member;
 import hello.core.domain.Orders;
 import hello.core.domain.Product;
 import hello.core.repository.OrderRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,9 @@ public class OrderService {
         this.orderrepository = orderrepository;
     }
 
+
     //Jpa 로 어떻게 바뀔지 한번 보자
+    @Transactional
     public Orders createOrders(Member member, Product product, int orderCount) {
         product.removeStocks(orderCount);
         Orders orders = new Orders(member.getId(), product.getProductId(), orderCount);
