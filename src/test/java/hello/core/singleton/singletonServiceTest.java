@@ -4,13 +4,19 @@ import hello.core.SpringConfig;
 import hello.core.service.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-
+// 프로젝트의 모든 빈(JPA 포함)을 다 올려줌
+@SpringBootTest
 public class singletonServiceTest {
+    // SpringBootTest를 통해 생성한 컨테이너 그냥 가져오기
+    @Autowired
+    ApplicationContext ac;
 
     @Test
     @DisplayName("같은 객체인지 검사")
@@ -31,8 +37,9 @@ public class singletonServiceTest {
     @Test
     @DisplayName("스프링 컨테이너를 이용한 싱글톤 패턴")
     void springContainer() {
-        ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
+//        ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
 
+        // 생성한 컨테이너의 service 객체 받아오기
         MemberService memberService1 = ac.getBean(MemberService.class);
         MemberService memberService2 = ac.getBean(MemberService.class);
 
